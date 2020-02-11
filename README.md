@@ -112,7 +112,7 @@ target_range = 110;
 
 *Range*
 
-![FFT_2d_plot - Range_Doppler_Map](./media/FFT_2d_plot - Range_Doppler_Map.jpg)
+![fft_2d_plot_range_doppler_map](./media/fft_2d_plot_range_doppler_map.jpg)
 
 *2D FFT Surface Plot*
 
