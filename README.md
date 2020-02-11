@@ -18,3 +18,4 @@ To avoid false detection due to constant threshold value to remove clutter we im
 Cell Averaging Constant False Rate Alarm  (CA-CFAR) is the most commonly used CFAR detection technique.
 
  ## 2D CFAR steps
+![2D CFAR](./media/CA-CFAR_plot.jpg)
