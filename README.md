@@ -112,12 +112,10 @@ target_range = 110;
 
 *Range*
 
-![2D FFT Surface Plot](./media/2_fft2_surface_plot.jpg)
+![FFT_2d_plot - Range_Doppler_Map](./media/FFT_2d_plot - Range_Doppler_Map.jpg)
 
 *2D FFT Surface Plot*
 
-![Range](./media/3_amplitude_range_fft2.jpg)
+![RADARTARGET](./media/RADARTARGET.jpg)
 
-*Range from FFT2*
-
-![Speed](./media/4_amplitude_speed_fft2.jpg)
+*CA-CFAR plot*
