@@ -1,6 +1,6 @@
 # Radar Target Generation and Detection
 
-![radar_target](./media/radar_target)
+![Radar](./media/radar_target)
 
 # Implementation Steps for the 2D CA-CFAR process
 
