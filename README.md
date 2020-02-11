@@ -88,3 +88,25 @@ for i = Tr+Gr+1:(Nr/2)-(Tr+Gr)
 end
 ```
 
+# Selection of Training, Guard cells and offset.
+- Number of Training cells in range dimension (Tr) = 50
+- Number of Training cells in doppler dimension (Td) = 25
+- Number of Guard cells in range dimension (Gr) = 5
+- Number of Guard cells in doppler dimension (Gd) = 5
+- Offset = 10
+
+# Steps taken to suppress the non-thresholded cells at the edges.
+The process above will generate a thresholded block, which is smaller than the Range Doppler Map as the CUT cannot be located at the edges of matrix. Hence, few cells will not be thresholded. To keep the map size same set those values to 0.
+
+Any cell value that is neither 1 nor a 0, assign it a zero.
+```matlab script
+RDM(RDM~=0 & RDM~=1) = 0;
+```
+# Output
+
+```matlab script
+% define the target's initial position and velocity. Note : Velocity
+% remains contant
+target_velocity = 20;
+target_range = 110;
+```
