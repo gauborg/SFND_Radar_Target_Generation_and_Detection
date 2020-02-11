@@ -1,7 +1,5 @@
 # Radar Target Generation and Detection
 
-![RADARTARGET](./media/RADARTARGET)
-
 # Implementation Steps for the 2D CA-CFAR process
 
 ## False Alarm Rate
@@ -41,5 +39,52 @@ Cell Averaging Constant False Rate Alarm  (CA-CFAR) is the most commonly used CF
 
 8. To keep the map size same as it was before CFAR, equate all the non-thresholded cell to 0.
 
+```matlab script
+%Select the number of Training Cells in both the dimensions.
+Tr = 50;
+Td = 25;
 
+% *%TODO* :
+%Select the number of Guard Cells in both dimensions around the Cell under 
+%test (CUT) for accurate estimation
+Gr = 5;
+Gd = 5;
+
+% *%TODO* :
+% offset the threshold by SNR value in dB
+offset = 10;
+
+% *%TODO* :
+%Create a vector to store noise_level for each iteration on training cells
+noise_level = zeros(1,1);
+
+total_cells = (2*Tr+2*Gr+1)*(2*Td+2*Gd+1);
+training_cells = total_cells - ((2*Gr+1)*(2*Gd+1));
+
+for i = Tr+Gr+1:(Nr/2)-(Tr+Gr)
+    for j = Td+Gd+1:Nd-(Td+Gd)
+        
+        noise_level = 0;       % initialize the noise level to zero for every loop
+        for p = i-(Tr+Gr):i+(Tr+Gr)
+            for q = j-(Td+Gd):j+(Td+Gd)
+                if (abs(i-p) > Gr || abs(j-q) > Gd)
+                    noise_level = noise_level + db2pow(RDM(p,q));
+                end
+            end
+        end
+        
+        % Calculate threshould from noise average then add the offset
+        threshold = pow2db(noise_level/training_cells);
+        threshold = threshold + offset;
+        
+        CUT = RDM(i,j);
+        
+        if (CUT < threshold)
+            RDM(i,j) = 0;
+        else
+            RDM(i,j) = 1;
+        end
+    end
+end
+```
 
