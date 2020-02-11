@@ -55,10 +55,6 @@ Gd = 5;
 % offset the threshold by SNR value in dB
 offset = 10;
 
-% *%TODO* :
-%Create a vector to store noise_level for each iteration on training cells
-noise_level = zeros(1,1);
-
 total_cells = (2*Tr+2*Gr+1)*(2*Td+2*Gd+1);
 training_cells = total_cells - ((2*Gr+1)*(2*Gd+1));
 
@@ -111,3 +107,17 @@ RDM(RDM~=0 & RDM~=1) = 0;
 target_velocity = 20;
 target_range = 110;
 ```
+
+![Range_plot](./media/Range_plot.jpg)
+
+*Range*
+
+![2D FFT Surface Plot](./media/2_fft2_surface_plot.jpg)
+
+*2D FFT Surface Plot*
+
+![Range](./media/3_amplitude_range_fft2.jpg)
+
+*Range from FFT2*
+
+![Speed](./media/4_amplitude_speed_fft2.jpg)
